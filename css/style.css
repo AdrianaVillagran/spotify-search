@@ -3,12 +3,8 @@
   margin-bottom: 20px;
 }
 
-input {
-  margin-bottom: 20px;
-}
-
-#results {
-  margin: 30px;
+.artist-info {
+  margin: 10px;
 }
 
 .track-list-items {
@@ -17,4 +13,12 @@ input {
 
 .preview {
   font-family: sans-serif;
+}
+
+input {
+  margin-bottom: 20px;
+}
+
+#results {
+  margin: 30px;
 }
