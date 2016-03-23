@@ -39,15 +39,4 @@ $(document).on('ready', function() {
     }
 
 
-
-//var $results = $('#results');
-
 });
-
-
-
-
-
-// data.tracks.items.forEach(function (element){
-//   $('#results').append('<p><strong>' + element.name + '</strong> by '+ element.artists[0].name + '</p>');
-//   });

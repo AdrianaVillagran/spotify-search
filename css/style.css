@@ -7,6 +7,10 @@ input {
   margin-bottom: 20px;
 }
 
-form {
-  margin-bottom: 20px;
+#results {
+  margin: 30px;
+}
+
+.track-list-items {
+  margin: 20px;
 }

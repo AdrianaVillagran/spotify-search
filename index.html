@@ -28,19 +28,27 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
+      <div class="col-sm-10 col-md-offset-1">
         <h1 class="text-center">Spotify Search</h1>
           <form>
             <input type="hidden" name="type" value="track">
             <input type="text" class="col-sm-12 form-control" name="q" value="" placeholder="Song Title"></input>
             <input type="submit" class="btn btn-success col-xs-12 submitButton"></input>
           </form>
-        <div id="results" class="col-sm-6 col-sm-offset-1">
+        <div id="results">
           <script id="tracks-template" type="text/x-handlebars-template">
+
            {{#each tracks}}
-             <img src="{{album.images.1.url}}" height="200px">
-             <p class=><strong>{{name}}</strong> by {{artists.0.name}}</p>
+             <div class="col-sm-10 track-list-items">
+               <div class="col-sm-5">
+                 <img src="{{album.images.1.url}}" height="200px">
+               </div>
+               <div class="col-sm-5">
+                  <p><strong>{{name}}</strong> by {{artists.0.name}}</p>
+               </div>
+             </div>
            {{/each}}
+
          </script>
         </div>
       </div>
