@@ -14,3 +14,7 @@ input {
 .track-list-items {
   margin: 20px;
 }
+
+.preview {
+  font-family: sans-serif;
+}
