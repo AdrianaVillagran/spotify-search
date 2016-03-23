@@ -39,15 +39,17 @@
           <script id="tracks-template" type="text/x-handlebars-template">
 
            {{#each tracks}}
-             <div class="col-sm-10 track-list-items">
-               <div class="col-sm-5">
+             <div class="col-md-10 track-list-items">
+               <div class="col-md-5 col-xs-12">
                  <img src="{{album.images.1.url}}" height="200px">
                </div>
-               <div class="col-sm-5">
+               <div class="col-md-5 col-xs-12">
                   <p><strong>{{name}}</strong> by {{artists.0.name}}</p>
-                  <button type="button" class="btn btn-default" aria-label="Left Align">
-                    <span class="glyphicon glyphicon-play glyphicon-align-left" aria-hidden="true"><span class="preview"> Preview</span></span>
-                  </button>
+                  <a href="{{preview_url}}" class="btn btn-default active" role="button">
+                    <span class="glyphicon glyphicon-play glyphicon-align-left" aria-hidden="true">
+                        <span class="preview"> Preview</span>
+                    </span>
+                  </a>
                </div>
              </div>
            {{/each}}
