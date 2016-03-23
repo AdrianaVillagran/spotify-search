@@ -9,44 +9,45 @@ $(document).on('ready', function() {
 
     $('form').on("submit", function handleClick(event) {
       event.preventDefault();
-      $('#results').text("");
+      $('#results').empty();
       getSongs();
     });
-  // your code here
 
-  // $('form').on('submit', function(event) {
-  //     event.preventDefault();
-  //     // $('.gif-gallery').html('');
-  //     getSongs();
-  // });
-  //When a user submits the form, use jQuery to get the search keyword from the form input.
+    var source = $('#tracks-template').html();
+    var template = Handlebars.compile(source);
+
+    function onSuccess(data) {
+      var trackResults = data.tracks.items;
+      console.log(trackResults);
+
+      var trackHtml = template({ tracks: trackResults });
+      $('#results').append(trackHtml);
+    }
+
+    function onError(xhr, status, errorThrown) {
+        alert("Sorry, that's not a song. Try again!");
+    }
+
+    function getSongs() {
+          $.ajax({
+              method: "GET",
+              url: "https://api.spotify.com/v1/search?type=track",
+              data: $("form").serialize(),
+              success: onSuccess,
+              error: onError
+          });
+    }
+
+
+
+//var $results = $('#results');
 
 });
 
-//var albumArt = ;
-// var $artistName = json.tracks.items[0].artists[0].name;
-// var $songTitle = json.tracks.items[1].name;
 
 
-function onSuccess(x) {
-  x.tracks.items.forEach(function (element){
-    $('#results').append('<p>' + element.name + ' by '+ element.artists[0].name + '</p>');
-    });
-  }
 
-function onError(xhr, status, errorThrown) {
-    alert("Sorry, there was a problem!");
-    // console.log("Error: " + errorThrown);
-    // console.log("Status: " + status);
-    // console.dir(xhr);
-}
 
-function getSongs() {
-      $.ajax({
-          method: "GET",
-          url: "https://api.spotify.com/v1/search?type=track",
-          data: $("form").serialize(),
-          success: onSuccess,
-          //error: onError
-      });
-}
+// data.tracks.items.forEach(function (element){
+//   $('#results').append('<p><strong>' + element.name + '</strong> by '+ element.artists[0].name + '</p>');
+//   });

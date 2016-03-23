@@ -32,10 +32,17 @@
         <h1 class="text-center">Spotify Search</h1>
           <form>
             <input type="hidden" name="type" value="track">
-            <input type="text" class="col-sm-12 form-control" name="q" value="wrecking ball" placeholder="Song Title"></input>
-            <input type="submit" class="btn btn-success col-sm-12 submitButton"></input>
+            <input type="text" class="col-sm-12 form-control" name="q" value="" placeholder="Song Title"></input>
+            <input type="submit" class="btn btn-success col-xs-12 submitButton"></input>
           </form>
-        <div id="results"></div>
+        <div id="results" class="col-sm-6 col-sm-offset-1">
+          <script id="tracks-template" type="text/x-handlebars-template">
+           {{#each tracks}}
+             <img src="{{album.images.1.url}}" height="200px">
+             <p class=><strong>{{name}}</strong> by {{artists.0.name}}</p>
+           {{/each}}
+         </script>
+        </div>
       </div>
     </div>
   </div>
